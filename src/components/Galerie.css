@@ -1,0 +1,313 @@
+/* =========================================
+   MOROCCAN ADVENTURES SECTION
+========================================= */
+
+.adventures {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.container {
+  width: min(100% - 4rem, 1200px);
+  margin: 0 auto;
+  /* height: 1200px; */
+}
+/* =========================================
+   HEADER
+========================================= */
+
+.adventures-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 22px;
+}
+
+
+.heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+
+.eyebrow {
+  color: #e8793f;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+.heading-wrapper h2 {
+  margin: 0;
+
+  color: #17252b;
+
+  font-size: 29px;
+  font-weight: 700;
+
+  letter-spacing: -0.8px;
+}
+
+
+.description {
+  width: 240px;
+
+  margin: 0;
+
+  color: #777;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   DESTINATIONS GRID
+========================================= */
+
+.destinations-grid {
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 270px 270px;
+
+  gap: 5px;
+}
+
+
+/* =========================================
+   CARD POSITIONS
+========================================= */
+
+/* Grande image - Sahara */
+.card-sahara {
+  grid-column: 1 / 8;
+  grid-row: 1;
+}
+
+
+/* Image en haut à droite */
+.card-medina {
+  grid-column: 8 / 13;
+  grid-row: 1;
+}
+
+
+/* Image en bas à gauche */
+.card-atlas {
+  grid-column: 1 / 6;
+  grid-row: 2;
+}
+
+
+/* Image centrale en bas */
+.card-coastal {
+  grid-column: 6 / 13;
+  grid-row: 2;
+}
+
+
+/* Image en bas à droite */
+/* .card-imperial {
+  grid-column: 9 / 13;
+  grid-row: 2;
+} */
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+
+/* Zoom au survol */
+.card:hover img {
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.15) 55%,
+    transparent 100%
+  );
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.card-info {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 10px;
+  bottom: 9px;
+
+  color: white;
+}
+
+
+.card-info span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 6px;
+}
+
+
+.card-info h3 {
+  margin: 0;
+
+  font-size: 8px;
+  font-weight: 500;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .adventures {
+    padding: 50px 20px;
+  }
+
+
+  .adventures-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+
+  .description {
+    width: 100%;
+    max-width: 350px;
+  }
+
+
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-rows: repeat(3, 180px);
+  }
+
+
+  /* Grande image */
+  .card-sahara {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+
+  /* Deuxième image */
+  .card-medina {
+    grid-column: 1 / 2;
+    grid-row: 2;
+  }
+
+
+  /* Troisième image */
+  .card-atlas {
+    grid-column: 2 / 3;
+    grid-row: 2;
+  }
+
+
+  /* Quatrième image */
+  .card-coastal {
+    grid-column: 1 / 2;
+    grid-row: 3;
+  }
+
+
+  /* Cinquième image */
+  .card-imperial {
+    grid-column: 2 / 3;
+    grid-row: 3;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .adventures {
+    padding: 40px 16px;
+  }
+
+
+  .heading-wrapper h2 {
+    font-size: 30px;
+  }
+
+
+  .destinations-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+
+  .card {
+    height: 210px;
+  }
+
+}

@@ -1,0 +1,505 @@
+:root {
+  --sand: #e9c893;
+  --terracotta: #c96f42;
+  --terracotta-dark: #a3552f;
+  --night: #0e1116;
+  --ink: #1b1f27;
+  --orange: #e87532;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    transparent
+  );
+
+  transition:
+    background 0.5s ease,
+    box-shadow 0.5s ease,
+    backdrop-filter 0.5s ease;
+}
+
+
+/* SCROLLED STATE */
+
+.navbar--scrolled {
+  background: rgba(14, 17, 22, 0.78);
+
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.25);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* =====================================================
+   NAVBAR INNER
+===================================================== */
+
+.navbar-inner {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 1.1rem 2rem;
+
+  transition:
+    padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.navbar--scrolled .navbar-inner {
+
+  padding:
+    0.7rem 2rem;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+
+  will-change: transform;
+}
+
+
+.logo-image {
+
+  width: 95px;
+
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.logo:hover .logo-image {
+
+  transform:
+    translateX(3px)
+    scale(1.03);
+}
+
+
+/* =====================================================
+   DESKTOP NAV
+===================================================== */
+
+.nav-desktop {
+
+  margin-left: auto;
+  margin-right: 2.5rem;
+}
+
+
+.nav-links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 2.2rem;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.nav-links li {
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.nav-links a {
+
+  position: relative;
+
+  display: inline-block;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.01em;
+
+  padding-bottom: 4px;
+
+  transition:
+    color 0.25s ease;
+
+  will-change: transform;
+}
+
+
+.nav-links a:hover {
+
+  color: var(--sand);
+
+  transform:
+    translateX(2px);
+}
+
+
+/* UNDERLINE */
+
+.link-underline {
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  height: 2px;
+
+  width: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--terracotta),
+      var(--sand)
+    );
+
+  transform:
+    scaleX(0);
+
+  transform-origin: left;
+
+  transition:
+    transform 0.35s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.nav-links a:hover .link-underline {
+
+  transform:
+    scaleX(1);
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.navbar-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1.2rem;
+}
+
+
+/* BOOK BUTTON */
+
+.primary-button {
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    0.65rem 1.5rem;
+
+  border-radius: 999px;
+
+  background:
+    var(--orange);
+
+  color: #fff;
+
+  font-weight: 600;
+
+  font-size: 0.92rem;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 6px 18px
+    rgba(201, 111, 66, 0.35);
+
+  transition:
+    transform 0.3s
+    cubic-bezier(0.16, 1, 0.3, 1),
+
+    box-shadow 0.3s ease,
+
+    filter 0.3s ease;
+}
+
+
+.primary-button:hover {
+
+  transform:
+    translateY(-3px)
+    translateX(2px);
+
+  box-shadow:
+    0 10px 24px
+    rgba(201, 111, 66, 0.45);
+
+  filter:
+    brightness(1.05);
+}
+
+
+/* =====================================================
+   MOBILE TOGGLE
+===================================================== */
+
+.menu-toggle {
+
+  display: none;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  width: 34px;
+  height: 34px;
+
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  z-index: 1100;
+}
+
+
+.menu-toggle span {
+
+  height: 2px;
+
+  width: 100%;
+
+  background: #fff;
+
+  border-radius: 2px;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+.menu-toggle.is-open span:nth-child(1) {
+
+  transform:
+    translateY(7px)
+    rotate(45deg);
+}
+
+
+.menu-toggle.is-open span:nth-child(2) {
+
+  opacity: 0;
+}
+
+
+.menu-toggle.is-open span:nth-child(3) {
+
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu {
+
+  overflow: hidden;
+
+  background:
+    rgba(14, 17, 22, 0.97);
+
+  backdrop-filter:
+    blur(16px);
+
+  -webkit-backdrop-filter:
+    blur(16px);
+}
+
+
+.mobile-menu ul {
+
+  list-style: none;
+
+  margin: 0;
+
+  padding:
+    1.5rem 2rem 2rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.2rem;
+}
+
+
+.mobile-menu a {
+
+  display: inline-block;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 1.15rem;
+
+  font-weight: 500;
+
+  transition:
+    color 0.25s ease,
+    transform 0.3s ease;
+}
+
+
+.mobile-menu a:hover {
+
+  color: var(--sand);
+
+  transform:
+    translateX(5px);
+}
+
+
+/* MOBILE CTA */
+
+.mobile-cta {
+
+  display: inline-block;
+
+  margin-top: 0.5rem;
+
+  padding:
+    0.75rem 1.5rem;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--terracotta),
+      var(--terracotta-dark)
+    );
+
+  text-align: center;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 860px) {
+
+  .nav-desktop,
+  .navbar-actions .primary-button {
+
+    display: none;
+  }
+
+
+  .menu-toggle {
+
+    display: flex;
+  }
+
+
+  .navbar-inner {
+
+    padding:
+      1rem 1.3rem;
+  }
+
+
+  .navbar--scrolled .navbar-inner {
+
+    padding:
+      0.7rem 1.3rem;
+  }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+
+}
