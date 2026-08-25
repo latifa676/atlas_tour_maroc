@@ -31,11 +31,11 @@ export const tours = [
   },
   {
     id: 4,
-    title: "Agadir Boat Trip",
+    title: "Taghazout",
     location: "Agadir, Morocco",
     duration: "3 Hours",
-    price: 250,
-    image: "src/assets/boatTrip.png",
+    price: 350,
+    image: "src/assets/taghazout2.jpg",
     description:
       "Enjoy the beautiful Atlantic coast and discover Agadir from the sea."
   }

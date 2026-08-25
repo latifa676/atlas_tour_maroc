@@ -12,7 +12,6 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
 };
 
-// Softer, cinematic title animation
 const titleContainer = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
@@ -44,70 +43,56 @@ function Hero() {
 
   const titleLine1 = "Discover Morocco's Wild Beauty,";
   const titleLine2 = "One Adventure at a Time";
+
   return (
-      <section
-        className="hero"
-        id="home"
-        ref={heroRef}
-      >
+    <section className="hero" id="home" ref={heroRef}>
       <motion.div
-      className="hero-bg"
-      initial={{ scale: 1.15 }}
-      animate={{ scale: 1 }}
-      style={{ x: backgroundX }}
-      transition={{ duration: 10, ease: "easeOut" }}
+        className="hero-bg"
+        initial={{ scale: 1.15 }}
+        animate={{ scale: 1 }}
+        style={{ x: backgroundX }}
+        transition={{ duration: 10, ease: "easeOut" }}
       />
 
-     <div className="hero-overlay" />
-     <div className="hero-feather"></div>
+      <div className="hero-overlay" />
+      <div className="hero-feather"></div>
 
-     <div className="hero-divider">
-
-    {/* <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
-        <path
-            d="M0,40 C300,180 1140,180 1440,40 L1440,220 L0,220 Z"
-            fill="#fff"
-        />
-    </svg> */}
-   </div>
       <motion.div
         className="hero-content"
         variants={container}
         initial="hidden"
         animate="visible"
-      >
-        {/* <motion.p className="hero-subtitle" variants={item}>
-          EXPLORE MOROCCO
-        </motion.p> */}
+    >
+  <motion.h1
+    variants={titleContainer}
+    initial="hidden"
+    animate="visible"
+    aria-label={`${titleLine1} ${titleLine2}`}
+  >
+ <span className="title-line">
+  {titleLine1.split(" ").map((word, i) => (
+    <motion.span
+      key={i}
+      className="title-word"
+      variants={titleWord}
+    >
+      {word}&nbsp;
+    </motion.span>
+  ))}
+</span>
 
-        <motion.h1
-          variants={titleContainer}
-          initial="hidden"
-          animate="visible"
-          aria-label={`${titleLine1} ${titleLine2}`}
-        >
-          <span className="title-line">
-            {titleLine1.split(" ").map((word, i) => (
-              <motion.span key={i} className="title-word" variants={titleWord}>
-                {word}
-                {"\u00A0"}
-              </motion.span>
-            ))}
-          </span>
-          <span className="title-line">
-            {titleLine2.split(" ").map((word, i) => (
-              <motion.span
-                key={i}
-                className="title-word"
-                variants={titleWord}
-              >
-                {word}
-                {"\u00A0"}
-              </motion.span>
-            ))}
-          </span>
-        </motion.h1>
-
+<span className="title-line">
+  {titleLine2.split(" ").map((word, i) => (
+    <motion.span
+      key={i}
+      className="title-word"
+      variants={titleWord}
+    >
+      {word}&nbsp;
+    </motion.span>
+  ))}
+</span>
+  </motion.h1>
         <motion.p className="hero-description" variants={item}>
           From the golden dunes of the Sahara to the emerald pools of Paradise
           Valley explore breathtaking landscapes and hidden gems with expert
@@ -136,6 +121,7 @@ function Hero() {
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.div>
+      
     </section>
   );
 }

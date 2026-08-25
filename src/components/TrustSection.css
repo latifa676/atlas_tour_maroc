@@ -15,24 +15,12 @@
 ===================================================== */
 
 .testimonials {
-
   width: 100%;
-
-  /*
-    Extra vertical space is intentional.
-
-    It gives the user enough scroll distance
-    to see the cards unfold.
-  */
-  min-height: 120vh;
-
-  padding: 100px 0 180px;
-
-  background: #fff;
-
+  min-height: 80vh;
+  padding: clamp(4.5rem, 8vw, 6.25rem) 1rem clamp(7.5rem, 14vw, 11.25rem);
   overflow: hidden;
-
   position: relative;
+  background: #fff;
 }
 
 
@@ -41,53 +29,29 @@
 ===================================================== */
 
 .section-title {
-
-  width:
-    min(700px, 90%);
-
-  margin:
-    auto;
-
-  text-align:
-    center;
-
-  position:
-    relative;
-
-  z-index:
-    10;
+  width: min(700px, 100%);
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
 
 .section-title h2 {
-
-  font-size:
-    3rem;
-
-  font-weight:
-    700;
-
-  line-height:
-    1.2;
-
-  margin-bottom:
-    20px;
-
-  color:
-    #111;
+  margin-bottom: clamp(0.9rem, 2vw, 1.25rem);
+  color: #17252b;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 
 .section-title p {
-
-  color:
-    #666;
-
-  font-size:
-    1rem;
-
-  line-height:
-    1.8;
+  max-width: 60ch;
+  margin: 0 auto;
+  color: #666;
+  font-size: clamp(0.92rem, 1.5vw, 1rem);
+  line-height: 1.7;
 }
 
 
@@ -96,45 +60,11 @@
 ===================================================== */
 
 .cards {
-    display:
-    block;
-
-  width:
-    100%;
-
-  /*
-    Important:
-
-    All cards occupy the same starting position.
-    There is no gap between them.
-  */
-
-  margin-top:
-    100px;
-
-  
-  /* justify-content:
-    center;
-
-  align-items:
-    flex-start; */
-
-  gap:
-    0;
-
-  position:
-    relative;
-
-  height:
-    420px;
-
-  /*
-    This prevents the horizontally moving
-    cards from creating a horizontal scrollbar.
-  */
-
-  overflow:
-    visible;
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin-top: clamp(4.5rem, 8vw, 6.25rem);
+  overflow: visible;
 }
 
 
@@ -143,66 +73,19 @@
 ===================================================== */
 
 .testimonial-card {
-
-  /*
-    Every card starts at the center.
-
-    Framer Motion will then control
-    x / y / rotate.
-  */
-
-  position:
-    absolute;
-
-  left:
-    50%;
-
-  top:
-    0;
-
-  width:
-    250px;
-
-  height:
-    400px;
-
-  /*
-    Important:
-
-    Do NOT use transform here.
-
-    Framer Motion controls transform.
-  */
-
-  margin-left:
-    -125px;
-
-  border-radius:
-    28px;
-
-  overflow:
-    hidden;
-
-  background:
-    #ffffff;
-
-  box-shadow:
-    0 18px 40px
-    rgba(0, 0, 0, 0.14);
-
-  will-change:
-    transform;
-
-  transform-origin:
-    center center;
-
-  /*
-    Prevent accidental selection
-    while scrolling.
-  */
-
-  user-select:
-    none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 250px;
+  height: 400px;
+  margin-left: -125px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  transform-origin: center center;
+  will-change: transform;
+  user-select: none;
 }
 
 
@@ -214,18 +97,10 @@
 ===================================================== */
 
 .testimonial-card img {
-
-  width:
-    100%;
-
-  height:
-    400px;
-
-  object-fit:
-    cover;
-
-  display:
-    block;
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 
@@ -234,186 +109,62 @@
 ===================================================== */
 
 .testimonial-card:hover {
-
-  box-shadow:
-    0 22px 45px
-    rgba(0, 0, 0, 0.14);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.14);
 }
 
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media (max-width: 1100px) {
-
+@media (max-width: 1023px) {
   .testimonials {
-
-    padding:
-      90px 0 160px;
+    min-height: 1050px;
   }
-
-
-  .section-title h2 {
-
-    font-size:
-      2.5rem;
-  }
-
-
-  .cards {
-
-    margin-top:
-      80px;
-  }
-
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 850px) {
-
-  .testimonials {
-
-    min-height:
-      1100px;
-
-    padding:
-      80px 0 140px;
-  }
-
-
-  .section-title {
-
-    width:
-      min(620px, 90%);
-  }
-
-
-  .section-title h2 {
-
-    font-size:
-      2.2rem;
-  }
-
-
-  /*
-    Smaller spread on tablet.
-  */
-
   .testimonial-card {
-
-    width:
-      210px;
-
-    height:
-      340px;
-
-    flex-basis:
-      210px;
+    width: 210px;
+    height: 340px;
+    margin-left: -105px;
   }
-
+  .testimonial-card img {
+    height: 340px;
+  }
+}
+@media (max-width: 767px) {
+  .testimonials {
+    min-height: 900px;
+  }
+  .cards {
+    height: 300px;
+    margin-top: 4.5rem;
+  }
+  .testimonial-card {
+    width: 170px;
+    height: 280px;
+    margin-left: -85px;
+    border-radius: 22px;
+  }
+  .testimonial-card img {
+    height: 280px;
+  }
+}
+@media (max-width: 479px) {
+  .testimonials {
+    min-height: 820px;
+    padding-inline: 0.75rem;
+  }
+  .cards {
+    height: 260px;
+    margin-top: 3.75rem;
+  }
+  .testimonial-card {
+    width: 150px;
+    height: 240px;
+    margin-left: -75px;
+  }
 
   .testimonial-card img {
-
-    height:
-      340px;
+    height: 240px;
   }
-
 }
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-  .testimonials {
-
-    min-height:
-      950px;
-
-    padding:
-      70px 0 120px;
-  }
-
-
-  .section-title {
-
-    width:
-      90%;
-  }
-
-
-  .section-title h2 {
-
-    font-size:
-      1.9rem;
-
-    margin-bottom:
-      15px;
-  }
-
-
-  .section-title p {
-
-    font-size:
-      0.92rem;
-
-    line-height:
-      1.7;
-  }
-
-
-  .cards {
-
-    margin-top:
-      70px;
-
-    height:
-      330px;
-  }
-
-
-  .testimonial-card {
-
-    width:
-      170px;
-
-    height:
-      280px;
-
-    flex-basis:
-      170px;
-
-    border-radius:
-      22px;
-  }
-
-
-  .testimonial-card img {
-
-    height:
-      280px;
-  }
-
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
 @media (prefers-reduced-motion: reduce) {
-
   .testimonial-card {
-
-    transform:
-      none !important;
+    transition: none;
   }
-
-}
+ }  

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useScroll,
@@ -55,6 +55,24 @@ const testimonials = [
 function TrustSection() {
 
   const sectionRef = useRef(null);
+  const [viewportWidth, setViewportWidth] = useState(
+    () => (typeof window === "undefined" ? 1200 : window.innerWidth)
+  );
+
+  useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isPhone = viewportWidth <= 600;
+  const isTablet = viewportWidth <= 850;
+  const outerSpread = isPhone ? 95 : isTablet ? 220 : 400;
+  const innerSpread = isPhone ? 80 : isTablet ? 120 : 200;
+  const outerVerticalOffset = isPhone ? 45 : isTablet ? 70 : 100;
+  const innerVerticalOffset = isPhone ? 8 : 15;
+  const centerVerticalOffset = isPhone ? -12 : -20;
 
 
   /*
@@ -93,19 +111,19 @@ function TrustSection() {
   const card1X = useTransform(
     scrollYProgress,
     animationRange,
-    [0, -500]
+    [0, -outerSpread]
   );
 
   const card1Y = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 60]
+    [0, outerVerticalOffset]
   );
 
   const card1Rotate = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 5]
+    [0, -25]
   );
 
 
@@ -118,13 +136,13 @@ function TrustSection() {
   const card2X = useTransform(
     scrollYProgress,
     animationRange,
-    [0, -250]
+    [0, -innerSpread]
   );
 
   const card2Y = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 15]
+    [0, innerVerticalOffset]
   );
 
   const card2Rotate = useTransform(
@@ -149,7 +167,7 @@ function TrustSection() {
   const card3Y = useTransform(
     scrollYProgress,
     animationRange,
-    [0, -20]
+    [0, centerVerticalOffset]
   );
 
   const card3Rotate = useTransform(
@@ -168,13 +186,13 @@ function TrustSection() {
   const card4X = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 250]
+    [0, innerSpread]
   );
 
   const card4Y = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 15]
+    [0, innerVerticalOffset]
   );
 
   const card4Rotate = useTransform(
@@ -193,19 +211,19 @@ function TrustSection() {
   const card5X = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 500]
+    [0, outerSpread]
   );
 
   const card5Y = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 60]
+    [0, outerVerticalOffset]
   );
 
   const card5Rotate = useTransform(
     scrollYProgress,
     animationRange,
-    [0, 5]
+    [0, 25]
   );
 
 

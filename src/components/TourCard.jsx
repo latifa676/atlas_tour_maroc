@@ -1,38 +1,11 @@
 import "./TourCard.css";
 // import { Link } from "react-router-dom";
 import { Heart, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 function TourCard({ tour }) {
-  // const { id,title, location, duration, price, image, description } = tour;
+  const navigate = useNavigate();
 
-//   return (
-//     <article className="tour-card">
-//       <img
-//         src={image}
-//         alt={title}
-//         className="tour-image"
-//       />
-
-//       <div className="tour-content">
-//         <p className="tour-location">{location}</p>
-
-//         <h3>{title}</h3>
-
-//         <p className="tour-description">
-//           {description}
-//         </p>
-
-//         <div className="tour-info">
-//           <span>{duration}</span>
-//           <span>From {price} MAD</span>
-//         </div>
-
-//         <Link to={`/tours/${id}`} className="primary-button">
-//           View Excursion
-//         </Link>
-//       </div>
-//     </article>
-//   );
-// }
 return (
     <article className="tour-card">
 
@@ -44,7 +17,10 @@ return (
 
       <div className="tour-overlay"></div>
 
-      <button className="book-btn">
+      <button
+        className="book-btn"
+        onClick={() => navigate(`/tours/${tour.id}`)}
+      >
         Book now
       </button>
 
