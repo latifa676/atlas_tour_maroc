@@ -1,77 +1,193 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import './Testimonial.css';
 
-const testimonials = [
+const reviewsData = [
+
   {
+
     id: 1,
-    name: "Mark Thompson",
-    role: "CEO Tripper",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300",
-    quote: "This travel website is very informative and easy to use. I like how they present various destination options and travel packages with clear details. Offering pictures and destination descriptions helps me decide where I want to visit. Additionally, the ability to compare prices and reviews from other users is very helpful in decision making."
+
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+
+    rating: 5,
+
+    name: "Ryan Almeida",
+
+    timeAgo: "1 day ago",
+
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+
   },
+
   {
+
     id: 2,
-    name: "Sarah Jenkins",
-    role: "Co-Founder Tripper",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-    quote: "Booking our corporate retreat was seamless. The transparent pricing and detailed itineraries saved us countless hours of planning. Highly recommended for anyone looking for a hassle-free experience!"
+
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+
+    rating: 5,
+
+    name: "Blossom Menezes",
+
+    timeAgo: "3 days ago",
+
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+
+  },
+
+  {
+
+    id: 3,
+
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+
+    rating: 5,
+
+    name: "Jason Roy",
+
+    timeAgo: "1 week ago",
+
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
+
+  },
+
+  {
+
+    id: 4,
+
+    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+
+    rating: 5,
+
+    name: "Elena Rostova",
+
+    timeAgo: "2 weeks ago",
+
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200"
+
   }
+
 ];
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [scrollIndex, setScrollIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    setScrollIndex((prev) => (prev > 0 ? prev - 1 : 0));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    setScrollIndex((prev) => (prev < reviewsData.length - 2 ? prev + 1 : prev));
   };
 
-  const current = testimonials[currentIndex];
-
   return (
-    <section className="testimonial-container">
-      <div className="testimonial-wrapper">
-        {/* Left Column: Author Info & Controls */}
-        <div className="author-column">
-          <div className="author-info">
-            <img 
-              src={current.avatar} 
-              alt={current.name} 
-              className="author-avatar" 
-            />
-            <div className="author-details">
-              <h3 className="author-name">{current.name}</h3>
-              <p className="author-role">{current.role}</p>
-            </div>
-          </div>
+    <section className="reviews-container">
+      <div className="reviews-wrapper">
+        
+        {/* Left Headline & Navigation Column */}
+        <motion.div 
+          className="reviews-header-col"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div 
+            className="large-quote-icon" 
+            aria-hidden="true"
+            initial={{ scale: 1.2, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            “
+          </motion.div>
+          <h2 className="reviews-title">
+            What our<br />
+            customers are<br />
+            saying
+          </h2>
 
-          <div className="navigation-controls">
+          <div className="carousel-nav">
             <button 
               onClick={handlePrev} 
-              className="nav-btn" 
-              aria-label="Previous testimonial"
+              className="nav-arrow" 
+              disabled={scrollIndex === 0}
+              aria-label="Previous reviews"
             >
               <ArrowLeft size={18} />
             </button>
+            <div className="nav-track">
+              <motion.div 
+                className="nav-thumb" 
+                animate={{ left: `${(scrollIndex / (reviewsData.length - 2)) * 60}%` }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            </div>
             <button 
               onClick={handleNext} 
-              className="nav-btn" 
-              aria-label="Next testimonial"
+              className="nav-arrow" 
+              disabled={scrollIndex >= reviewsData.length - 2}
+              aria-label="Next reviews"
             >
               <ArrowRight size={18} />
             </button>
           </div>
+        </motion.div>
+
+        {/* Right Scrolling Cards Area */}
+        <div className="cards-slider-viewport">
+          <motion.div 
+            className="cards-slider-track"
+            // Replaced inline style with Framer Motion animate for smooth scrolling
+            animate={{ x: -(scrollIndex * 330) }}
+            transition={{ type: "spring", stiffness: 250, damping: 28 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
+            }}
+          >
+            {reviewsData.map((review) => (
+              <motion.div 
+                key={review.id} 
+                className="review-card-wrapper"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                {/* Speech Bubble Card */}
+                <div className="speech-bubble">
+                  <p className="review-body">{review.text}</p>
+                  <div className="rating-stars">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="star-icon" size={16} />
+                    ))}
+                  </div>
+                  <div className="bubble-tail" />
+                </div>
+
+                {/* Author Info */}
+                <div className="card-author-info">
+                  <img 
+                    src={review.avatar} 
+                    alt={review.name} 
+                    className="author-avatar" 
+                  />
+                  <div>
+                    <h4 className="author-name">{review.name}</h4>
+                    <span className="author-time">{review.timeAgo}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Right Column: Quote Block */}
-        <div className="quote-column">
-          <div className="quote-mark" aria-hidden="true">“</div>
-          <p className="quote-text">{current.quote}</p>
-        </div>
       </div>
     </section>
   );

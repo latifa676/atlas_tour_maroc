@@ -1,134 +1,194 @@
 :root {
-  --bg-testimonial: #f8f9fa;
-  --text-primary: #121212;
-  --text-secondary: #8c8c8c;
-  --text-quote: #2c2c2c;
-  --quote-mark-color: #f0f0f0;
-  --btn-hover: #e0e0e0;
+  --bg-reviews: #f9f8f9;
+  --text-dark: #1b3a5c;
+  --text-body: #4a4a4a;
+  --text-muted: #999999;
+  --card-bg: #ffffff;
+  --star-color: #00b67a;
+  --border-subtle: #eaeaea;
 }
 
-.testimonial-container {
+.reviews-container {
   width: 100%;
-  background-color: var(--bg-testimonial);
+  background-color: #ffffff;
   padding: 80px 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.testimonial-wrapper {
-  max-width: 1100px;
-  width: 100%;
+.reviews-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
   align-items: center;
 }
 
-@media (min-width: 768px) {
-  .testimonial-wrapper {
+@media (min-width: 900px) {
+  .reviews-wrapper {
     grid-template-columns: 320px 1fr;
-    gap: 60px;
+    gap: 48px;
   }
 }
 
-/* Left Column */
-.author-column {
+/* Header Column */
+.reviews-header-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 40px;
+  justify-content: center;
 }
 
-.author-info {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.large-quote-icon {
+  font-size: 110px;
+  line-height: 0.6;
+  font-family: Georgia, serif;
+  color: #c8c8c8;
+  margin-bottom: 24px;
+  user-select: none;
 }
 
-.author-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.author-name {
-  font-size: 18px;
+.reviews-title {
+  font-size: 28px;
   font-weight: 700;
-  color: var(--text-primary);
-  margin: 0 0 4px 0;
-  letter-spacing: -0.2px;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin: 0 0 40px 0;
+  letter-spacing: -0.3px;
 }
 
-.author-role {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin: 0;
-  font-weight: 400;
-}
-
-/* Navigation Buttons */
-.navigation-controls {
+/* Custom Navigation Bar */
+.carousel-nav {
   display: flex;
   align-items: center;
   gap: 16px;
+  width: 100%;
+  max-width: 220px;
 }
 
-.nav-btn {
+.nav-arrow {
   background: transparent;
   border: none;
-  color: var(--text-primary);
+  color: var(--text-dark);
   cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
+  transition: opacity 0.2s;
 }
 
-.nav-btn:hover {
-  background-color: var(--btn-hover);
+.nav-arrow:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
 }
 
-.nav-btn:active {
-  opacity: 0.7;
-}
-
-/* Right Column */
-.quote-column {
+.nav-track {
+  flex: 1;
+  height: 2px;
+  background-color: #e0e0e0;
   position: relative;
-  padding-top: 10px;
+  border-radius: 2px;
 }
 
-.quote-mark {
+.nav-thumb {
   position: absolute;
-  top: -35px;
-  left: -10px;
-  font-size: 120px;
-  font-family: Georgia, serif;
-  line-height: 1;
-  color: var(--quote-mark-color);
-  user-select: none;
-  z-index: 1;
+  top: -1px;
+  height: 4px;
+  width: 40%;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  transition: left 0.3s ease;
 }
 
-.quote-text {
+/* Cards Slider Section */
+.cards-slider-viewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 25px 0 20px 0;
+}
+
+.cards-slider-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.review-card-wrapper {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 20px;
+
+}
+
+/* Speech Bubble Card */
+.speech-bubble {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  padding: 28px 24px 20px 24px;
+  box-shadow: 0 10px 30px rgba(230, 108, 9, 0.486);
   position: relative;
-  z-index: 2;
-  font-size: 16px;
-  line-height: 1.65;
-  color: var(--text-quote);
-  margin: 0;
-  font-weight: 400;
-  letter-spacing: -0.1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
 }
 
-@media (min-width: 768px) {
-  .quote-text {
-    font-size: 17px;
-  }
+.review-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0 0 16px 0;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star-icon {
+  color: #f5820d;
+  fill: currentColor;
+}
+
+/* Speech Bubble Pointer/Tail */
+.bubble-tail {
+  position: absolute;
+  bottom: -12px;
+  left: 28px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 14px solid var(--card-bg);
+}
+
+/* Author Info */
+.card-author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 8px;
+}
+
+.author-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 2px 0;
+}
+
+.author-time {
+  font-size: 11px;
+  color: var(--text-muted);
 }

@@ -8,11 +8,11 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <main>
-      <Hero />
+      <Hero />           
+      <AboutUs />
       <TrustSection />
       <TourGrid />
       <Testimonials />
-      <AboutUs />
       <Footer />
 
     </main>

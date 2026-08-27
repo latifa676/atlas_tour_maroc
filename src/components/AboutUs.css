@@ -13,7 +13,8 @@
   padding: 80px 24px;
   position: relative;
   overflow: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 .about-wrapper {
@@ -69,7 +70,7 @@
 }
 
 .about-title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Poppins', serif;
   font-size: 38px;
   font-weight: 700;
   color: var(--text-dark);
@@ -180,7 +181,7 @@
 }
 
 .stat-value {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 34px;
   font-weight: 700;
   color: var(--text-dark);
