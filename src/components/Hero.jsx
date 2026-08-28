@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Telephirique from "../assets/Telephirique.jpeg";
 import "./Hero.css";
 
 const container = {
@@ -46,13 +47,16 @@ function Hero() {
 
   return (
     <section className="hero" id="home" ref={heroRef}>
-      <motion.div
-        className="hero-bg"
-        initial={{ scale: 1.15 }}
-        animate={{ scale: 1 }}
-        style={{ x: backgroundX }}
-        transition={{ duration: 10, ease: "easeOut" }}
-      />
+  <motion.div
+    className="hero-bg"
+    initial={{ scale: 1.15 }}
+    animate={{ scale: 1 }}
+    style={{
+      x: backgroundX,
+      backgroundImage: `url(${Telephirique})`,
+    }}
+    transition={{ duration: 10, ease: "easeOut" }}
+  />
 
       <div className="hero-overlay" />
       <div className="hero-feather"></div>
