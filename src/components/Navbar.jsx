@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
+import logoImage from "../assets/logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "Excursions", href: "#tours" },
   { label: "About Us", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Excursions", href: "#tours" },
+  // { label: "Contact", href: "#contact" },
 ];
 
 function Navbar() {
@@ -53,7 +54,7 @@ function Navbar() {
           }}
         >
           <img
-            src="src/assets/logo.png"
+            src={logoImage}
             alt="Morocco Excursions"
             className="logo-image"
           />

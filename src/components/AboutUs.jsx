@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './AboutUs.css';
+import aboutUsImage from '../assets/AboutUs.jpg';
+import paradiseValleyImage from '../assets/paradise-valley.jpg';
 
 const statsData = [
   { value: '10,000+', label: 'Happy Travelers' },
@@ -88,7 +90,7 @@ export default function AboutUs() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <img src="src/assets/AboutUs.jpg" alt="Lake and Mountains" />
+              <img src={aboutUsImage} alt="Lake and Mountains" />
             </motion.div>
 
             <motion.div 
@@ -98,7 +100,7 @@ export default function AboutUs() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img src="src/assets/paradise-valley.jpg" alt="Hiker in Desert" />
+              <img src={paradiseValleyImage} alt="Hiker in Desert" />
             </motion.div>
           </div>
         </div>

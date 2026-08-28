@@ -5,6 +5,7 @@ import {
   FaTripadvisor,
 } from "react-icons/fa";
 import "./footer.css";
+import logoImage from "../assets/logo.png";
 
 function Footer() {
   return (
@@ -18,7 +19,7 @@ function Footer() {
           <div className="footer-brand">
             <div className="brand-logo">
               <img
-              src="src/assets/logo.png"
+              src={logoImage}
               alt="Morocco Excursions"
               className="logo-image"
               />

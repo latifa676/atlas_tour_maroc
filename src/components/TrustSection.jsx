@@ -6,12 +6,17 @@ import {
 } from "framer-motion";
 
 import "./TrustSection.css";
+import enjoyImage from "../assets/enjoy.png";
+import enjoy2Image from "../assets/enjoy2.png";
+import enjoy3Image from "../assets/enjoy3.png";
+import enjoy4Image from "../assets/enjoy4.png";
+import enjoy5Image from "../assets/enjoy5.png";
 
 
 const testimonials = [
   {
     id: 1,
-    image: "src/assets/enjoy.png",
+    image: enjoyImage,
     name: "Mia Putri",
     text: "An amazing experience! Sunrise and trails were absolutely stunning.",
     rotate: "5deg",
@@ -19,7 +24,7 @@ const testimonials = [
   },
   {
     id: 2,
-    image: "src/assets/enjoy2.png",
+    image: enjoy2Image,
     name: "Ahmad Fouzi",
     text: "Sunrise was incredible and guides were so helpful.",
     rotate: "-7deg",
@@ -27,7 +32,7 @@ const testimonials = [
   },
   {
     id: 3,
-    image: "src/assets/enjoy3.png",
+    image: enjoy3Image,
     name: "Alya Rahman",
     text: "Breathtaking views and unforgettable memories.",
     rotate: "0deg",
@@ -35,7 +40,7 @@ const testimonials = [
   },
   {
     id: 4,
-    image: "src/assets/enjoy4.png",
+    image: enjoy4Image,
     name: "Rizky Aditya",
     text: "Professional guides and stunning scenery.",
     rotate: "7deg",
@@ -43,7 +48,7 @@ const testimonials = [
   },
   {
     id: 5,
-    image: "src/assets/enjoy5.png",
+    image: enjoy5Image,
     name: "Siti Nurhaliza",
     text: "Every moment was magical. Highly recommended.",
     rotate: "-6deg",

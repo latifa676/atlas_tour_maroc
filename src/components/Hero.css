@@ -17,7 +17,7 @@
   inset: 0;
   z-index: -1;
   width: 110%;
-  background-image: url("src/assets/Telephirique.jpeg");
+  background-image: url("../assets/Telephirique.jpeg");
   background-size: cover;
   background-position: center;
   will-change: transform;

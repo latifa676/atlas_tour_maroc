@@ -1,32 +1,36 @@
 import "./Galerie.css";
+import saharaImage from "../assets/sahara.png";
+import medinaImage from "../assets/medina.png";
+import essaouiraImage from "../assets/essaouira.png";
+import soukImage from "../assets/souk.png";
 
 const destinations = [
   {
     id: 1,
     title: "Sahara Desert Expedition",
     location: "Erg Chebbi, Merzouga",
-    image: "src/assets/sahara.png",
+    image: saharaImage,
     className: "card card-sahara",
   },
   {
     id: 2,
     title: "Ancient Medina Walk",
     location: "Aït Ben Haddou",
-    image: "src/assets/medina.png",
+    image: medinaImage,
     className: "card card-medina",
   },
   {
     id: 3,
     title: "Atlas Mountain Trail",
     location: "Atlas Mountains",
-    image: "src/assets/essaouira.png",
+    image: essaouiraImage,
     className: "card card-atlas",
   },
   {
     id: 4,
     title: "Coastal Wind City Tour",
     location: "Essaouira",
-    image: "src/assets/souk.png",
+    image: soukImage,
     className: "card card-coastal",
   },
   // {

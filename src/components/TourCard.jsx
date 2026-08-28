@@ -19,7 +19,7 @@ return (
 
       <button
         className="book-btn"
-        onClick={() => navigate(`/tours/${tour.id}`)}
+        // onClick={() => navigate(`/tours/${tour.id}`)}
       >
         Book now
       </button>

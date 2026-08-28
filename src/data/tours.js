@@ -1,3 +1,8 @@
+import paradiseValley2 from "../assets/paradise-valley2.jpg";
+import desertAgadir from "../assets/desertAgadir.png";
+import boatTrip from "../assets/boatTrip.png";
+import taghazout2 from "../assets/taghazout2.jpg";
+
 export const tours = [
   {
     id: 1,
@@ -5,7 +10,7 @@ export const tours = [
     location: "Agadir, Morocco",
     duration: "Full Day",
     price: 350,
-    image: "src/assets/paradise-valley2.jpg",
+    image: paradiseValley2,
     description:
       "Discover natural pools, beautiful landscapes, and the hidden beauty of Paradise Valley."
   },
@@ -15,7 +20,7 @@ export const tours = [
     location: "Agadir, Morocco",
     duration: "Half Day",
     price: 300,
-    image: "src/assets/desertAgadir.png",
+    image: desertAgadir,
     description:
       "Experience the Moroccan desert with an unforgettable adventure."
   },
@@ -25,7 +30,7 @@ export const tours = [
     location: "Agadir, Morocco",
     duration: "3 Hours",
     price: 250,
-    image: "src/assets/boatTrip.png",
+    image: boatTrip,
     description:
       "Enjoy the beautiful Atlantic coast and discover Agadir from the sea."
   },
@@ -35,7 +40,7 @@ export const tours = [
     location: "Agadir, Morocco",
     duration: "3 Hours",
     price: 350,
-    image: "src/assets/taghazout2.jpg",
+    image: taghazout2,
     description:
       "Enjoy the beautiful Atlantic coast and discover Agadir from the sea."
   }
