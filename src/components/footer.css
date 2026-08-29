@@ -197,10 +197,35 @@
     align-items: flex-start;
     gap: 16px;
   }
+  /* .footer-watermark {
+  position: absolute;
+  bottom: -0px;
+  } */
+.footer-wrapper {
+    padding: 32px 12px 80px;
+  }
+.footer-watermark {
+    bottom: 5px;
+    font-size: 100px;
+    line-height: 0.8;
+  }
+
 }
 
 @media (max-width: 520px) {
   .footer-links-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  /* .footer-watermark {
+  position: absolute;
+  bottom: -0px;
+  } */
+    .footer-wrapper {
+    padding: 32px 12px 80px;
+  }
+.footer-watermark {
+    bottom: 5px;
+    font-size: 100px;
+    line-height: 0.8;
   }
 }

@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About Us", href: "#about" },
   { label: "Excursions", href: "#tours" },
+  { label: "Testimonial", href: "#testimonials" },
   // { label: "Contact", href: "#contact" },
 ];
 
