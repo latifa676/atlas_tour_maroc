@@ -39,7 +39,7 @@
 
 .section-title h2 {
   margin-bottom: clamp(0.9rem, 2vw, 1.25rem);
-  color: #17252b;
+  color: var(--title-color);
   font-size: clamp(1.9rem, 4vw, 3rem);
   font-weight: 700;
   line-height: 1.2;

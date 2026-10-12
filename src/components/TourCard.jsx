@@ -1,25 +1,37 @@
 import "./TourCard.css";
-// import { Link } from "react-router-dom";
 import { Heart, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-function TourCard({ tour }) {
+function TourCard({ tour, searchCriteria }) {
   const navigate = useNavigate();
 
-return (
+  const title = tour.title || "";
+  const description = tour.description || "";
+  const duration = tour.duration || "";
+  const openTour = () => {
+    const params = new URLSearchParams();
+    if (searchCriteria.date) params.set("date", searchCriteria.date);
+    if (searchCriteria.travelers) params.set("travelers", searchCriteria.travelers);
+    const queryString = params.toString();
+    navigate(`/tours/${tour.slug || tour.id}${queryString ? `?${queryString}` : ""}`);
+  };
+
+  return (
     <article className="tour-card">
 
       <img
         src={tour.image}
-        alt={tour.title}
+        alt={title}
         className="tour-image"
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="tour-overlay"></div>
 
       <button
         className="book-btn"
-        // onClick={() => navigate(`/tours/${tour.id}`)}
+        onClick={openTour}
       >
         Book now
       </button>
@@ -27,29 +39,29 @@ return (
       <button className="favorite-btn">
         <Heart size={20} />
       </button>
-      
-      
-          <div className="tour-content">
 
-            <h3>{tour.title}</h3>
+      <div className="tour-content">
 
-            <p>{tour.description}</p>
+        <h3>{title}</h3>
 
-            <div className="tour-tags">
+        <p>{description}</p>
 
-              <span className="tag">
-                <Star size={14} fill="white" />
-                4.7
-              </span>
+        <div className="tour-tags">
 
-              <span className="tag">
-                {tour.duration}
-              </span>
+          <span className="tag">
+            <Star size={14} fill="white" />
+            4.7
+          </span>
 
-            </div>
+          <span className="tag">
+            {duration}
+          </span>
 
         </div>
+
+      </div>
     </article>
   );
 }
+
 export default TourCard;

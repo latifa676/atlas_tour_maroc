@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import './AboutUs.css';
-import aboutUsImage from '../assets/AboutUs.jpg';
-import paradiseValleyImage from '../assets/paradise-valley.jpg';
+import aboutUsImage from '../assets/AboutUs.webp';
+import paradiseValleyImage from '../assets/paradise-valley.webp';
 
 const statsData = [
   { value: '10,000+', label: 'Happy Travelers' },
@@ -27,7 +26,7 @@ const textItemVariants = {
 
 export default function AboutUs() {
   return (
-    <section className="about-container">
+    <section className="about-container" id="about">
       <div className="about-wrapper">
         
         {/* SVG Path */}
@@ -90,7 +89,12 @@ export default function AboutUs() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <img src={aboutUsImage} alt="Lake and Mountains" />
+              <img
+                src={aboutUsImage}
+                alt="Moroccan mountain landscape near Agadir"
+                loading="lazy"
+                decoding="async"
+              />
             </motion.div>
 
             <motion.div 
@@ -100,7 +104,12 @@ export default function AboutUs() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img src={paradiseValleyImage} alt="Hiker in Desert" />
+              <img
+                src={paradiseValleyImage}
+                alt="Natural pools in Paradise Valley, Morocco"
+                loading="lazy"
+                decoding="async"
+              />
             </motion.div>
           </div>
         </div>

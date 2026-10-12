@@ -79,7 +79,9 @@
   gap: 16px;
 }
 
-.social-links a {
+.social-links a,
+.social-links span {
+  display: inline-flex;
   color: #111;
   transition: opacity 0.2s ease;
 }
@@ -147,6 +149,10 @@
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.2s ease;
+}
+
+.legal-links span {
+  color: #777;
 }
 
 .legal-links a:hover {

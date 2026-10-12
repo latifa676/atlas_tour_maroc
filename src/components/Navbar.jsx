@@ -1,20 +1,37 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import logoImage from "../assets/logo.png";
+import logoImage from "../assets/Agencyidentity.webp";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
+  { label: "Destinations", href: "#destinations" },
   { label: "Excursions", href: "#tours" },
-  { label: "Testimonial", href: "#testimonials" },
-  // { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "#about" },
+  { label: "Reviews", href: "#testimonials" },
 ];
 
 function Navbar() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { pathname } = location;
+  const isTourDetail = pathname.startsWith("/tours/");
+  const getNavigationHref = (href) => (isTourDetail ? `/${href}` : href);
   const [scrolled, setScrolled] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const sectionId = location.state?.scrollToSection;
+    if (pathname !== "/" || !sectionId) return undefined;
+
+    const frameId = window.requestAnimationFrame(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ block: "start" });
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [location.state, pathname]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -34,8 +51,23 @@ function Navbar() {
     };
   }, [menuOpen]);
 
+  const handleNavigationClick = (event, href) => {
+    setMenuOpen(false);
+    if (!isTourDetail) return;
+
+    event.preventDefault();
+    navigate(
+      { pathname: "/", hash: href },
+      { state: { scrollToSection: href.slice(1) } }
+    );
+  };
+
   return (
-    <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+    <header
+      className={`navbar ${scrolled ? "navbar--scrolled" : ""} ${
+        isTourDetail ? "navbar--tour-detail" : ""
+      }`}
+    >
 
       <div className="container navbar-inner">
 
@@ -80,7 +112,10 @@ function Navbar() {
                 }}
               >
 
-                <a href={href}>
+                <a
+                  href={getNavigationHref(href)}
+                  onClick={(event) => handleNavigationClick(event, href)}
+                >
 
                   {label}
 
@@ -101,7 +136,7 @@ function Navbar() {
         <div className="navbar-actions">
 
           <motion.a
-            href="#booking"
+            href={isTourDetail ? "#booking" : "#tours"}
             className="primary-button"
             initial={{ opacity: 0, x: 60 }}
             animate={{
@@ -121,7 +156,8 @@ function Navbar() {
           {/* MOBILE BUTTON */}
           <button
             className={`menu-toggle ${menuOpen ? "is-open" : ""}`}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-controls="mobile-navigation"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((o) => !o)}
           >
@@ -142,6 +178,7 @@ function Navbar() {
 
           <motion.div
             className="mobile-menu"
+            id="mobile-navigation"
             initial={{
               opacity: 0,
               height: 0,
@@ -182,8 +219,8 @@ function Navbar() {
                 >
 
                   <a
-                    href={href}
-                    onClick={() => setMenuOpen(false)}
+                    href={getNavigationHref(href)}
+                    onClick={(event) => handleNavigationClick(event, href)}
                   >
                     {label}
                   </a>
@@ -210,7 +247,7 @@ function Navbar() {
               >
 
                 <a
-                  href="#booking"
+                  href={isTourDetail ? "#booking" : "#tours"}
                   className="mobile-cta"
                   onClick={() => setMenuOpen(false)}
                 >

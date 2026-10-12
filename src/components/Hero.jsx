@@ -1,131 +1,136 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import Telephirique from "../assets/Telephirique.jpeg";
+import { motion } from "framer-motion";
+import { CalendarDays, MapPin, Search, Users } from "lucide-react";
+import Telephirique from "../assets/Hero.webp";
 import "./Hero.css";
 
-const container = {
+const contentVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.18, delayChildren: 0.2 } },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
 };
 
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-};
-
-const titleContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
-};
-
-const titleWord = {
-  hidden: { opacity: 0, y: 18, filter: "blur(8px)" },
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 1.1, ease: [0.19, 1, 0.22, 1] },
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
-function Hero() {
-  const heroRef = useRef(null);
+const headlineLines = ["Your Moroccan Adventure", "Starts Here"];
 
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
+function Hero({ onSearch }) {
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const searchCriteria = {
+      destination: String(formData.get("destination") || "").trim(),
+      date: String(formData.get("date") || ""),
+      travelers: String(formData.get("persons") || "2")
+    };
 
-  const backgroundX = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -50]
-  );
+    onSearch(searchCriteria);
+    document.getElementById("tours")?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  const titleLine1 = "Discover Morocco's Wild Beauty,";
-  const titleLine2 = "One Adventure at a Time";
+  const today = new Date();
+  const minimumDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
 
   return (
-    <section className="hero" id="home" ref={heroRef}>
-  <motion.div
-    className="hero-bg"
-    initial={{ scale: 1.15 }}
-    animate={{ scale: 1 }}
-    style={{
-      x: backgroundX,
-      backgroundImage: `url(${Telephirique})`,
-    }}
-    transition={{ duration: 10, ease: "easeOut" }}
-  />
-
-      <div className="hero-overlay" />
-      <div className="hero-feather"></div>
+    <section className="hero" id="home">
+      <img
+        className="hero-bg"
+        src={Telephirique}
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
+      />
+      <div className="hero-overlay" aria-hidden="true" />
 
       <motion.div
         className="hero-content"
-        variants={container}
+        variants={contentVariants}
         initial="hidden"
         animate="visible"
-    >
-  <motion.h1
-    variants={titleContainer}
-    initial="hidden"
-    animate="visible"
-    aria-label={`${titleLine1} ${titleLine2}`}
-  >
- <span className="title-line">
-  {titleLine1.split(" ").map((word, i) => (
-    <motion.span
-      key={i}
-      className="title-word"
-      variants={titleWord}
-    >
-      {word}&nbsp;
-    </motion.span>
-  ))}
-</span>
+      >
 
-<span className="title-line">
-  {titleLine2.split(" ").map((word, i) => (
-    <motion.span
-      key={i}
-      className="title-word"
-      variants={titleWord}
-    >
-      {word}&nbsp;
-    </motion.span>
-  ))}
-</span>
-  </motion.h1>
-        <motion.p className="hero-description" variants={item}>
-          From the golden dunes of the Sahara to the emerald pools of Paradise
-          Valley explore breathtaking landscapes and hidden gems with expert
-          local guides.
+        <motion.h1 variants={itemVariants}>
+          {headlineLines.map((line) => (
+            <span className="hero-title-line" key={line}>{line}</span>
+          ))}
+        </motion.h1>
+
+        <motion.p className="hero-description" variants={itemVariants}>
+          Discover the Sahara, Atlas Mountains, Paradise Valley and Morocco&apos;s
+          hidden gems with local expert guides.
         </motion.p>
 
-        <motion.div className="hero-actions" variants={item}>
-          <a href="#tours" className="primary-button">
+        <motion.form
+          className="hero-search"
+          variants={itemVariants}
+          onSubmit={handleSearch}
+        >
+          <label className="hero-search__field">
+            <MapPin size={18} aria-hidden="true" />
+            <input
+              type="search"
+              name="destination"
+              placeholder="Where to next?"
+              aria-label="Destination"
+            />
+          </label>
+
+          <label className="hero-search__field">
+            <CalendarDays size={18} aria-hidden="true" />
+            <input
+              type="date"
+              name="date"
+              min={minimumDate}
+              aria-label="Pick your dates"
+            />
+          </label>
+
+          <label className="hero-search__field hero-search__field--travelers">
+            <Users size={18} aria-hidden="true" />
+            <select name="persons" aria-label="Number of persons" defaultValue="2">
+              {[1, 2, 3, 4, 5, 6].map((count) => (
+                <option key={count} value={count}>
+                  {count} {count === 1 ? "Person" : "Persons"}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <button className="hero-search__submit" type="submit">
+            <span>Find my trip</span>
+            <Search size={16} aria-hidden="true" />
+          </button>
+        </motion.form>
+
+        {/* <motion.div className="hero-actions" variants={itemVariants}>
+          <a href="#tours" className="hero-button hero-button--primary">
             Explore Excursions
           </a>
-          <a href="#booking" className="secondary-button">
-            Book Your Adventure
+          <a href="#about" className="hero-button hero-button--secondary">
+            Discover Morocco
           </a>
-        </motion.div>
+        </motion.div> */}
+
+        {/* <motion.div className="hero-trust" variants={itemVariants}>
+          <span className="hero-trust__stars" aria-label="Five-star traveler reviews">
+            {Array.from({ length: 5 }, (_, index) => (
+              <Star key={index} size={15} fill="currentColor" aria-hidden="true" />
+            ))}
+          </span>
+          <span><strong>10,000+</strong> Happy Travelers</span>
+        </motion.div> */}
       </motion.div>
 
-      <motion.div
-        className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 0.6 }}
-      >
-        <motion.div
-          className="scroll-dot"
-          animate={{ y: [0, 14, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
-      
+      {/* <a className="scroll-indicator" href="#destinations" aria-label="Explore Morocco">
+        <span>Explore Morocco</span>
+        <ArrowDown size={17} aria-hidden="true" />
+      </a> */}
     </section>
   );
 }

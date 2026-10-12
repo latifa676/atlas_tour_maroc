@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import './Testimonial.css';
@@ -83,7 +83,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="reviews-container">
+    <section className="reviews-container" id="testimonials">
       <div className="reviews-wrapper">
         
         {/* Left Headline & Navigation Column */}
@@ -176,6 +176,8 @@ export default function Testimonials() {
                   <img 
                     src={review.avatar} 
                     alt={review.name} 
+                    loading="lazy"
+                    decoding="async"
                     className="author-avatar" 
                   />
                   <div>

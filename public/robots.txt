@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atlastour-iota.vercel.app/sitemap.xml

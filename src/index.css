@@ -1,9 +1,25 @@
+:root {
+  --title-color: #000;
+  --primary-action-background: #000;
+  --primary-action-hover: #222;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
   /*  overflow-x: hidden;  Cuts off any element leaking out horizontally */
-
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+}
 
+h1,
+h2,
+h3,
+.hero-title {
+  font-family: "DM Serif Display", serif;
+  color: var(--title-color);
 }

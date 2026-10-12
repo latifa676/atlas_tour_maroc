@@ -73,7 +73,7 @@
   font-family: 'Poppins', serif;
   font-size: 38px;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--title-color);
   margin-bottom: 24px;
   letter-spacing: -0.5px;
 }
@@ -88,7 +88,7 @@
 
 .btn-more-about {
   margin-top: 12px;
-  background-color: var(--primary-orange);
+  background-color: var(--primary-action-background);
   color: #ffffff;
   border: none;
   border-radius: 30px;
@@ -101,7 +101,7 @@
 }
 
 .btn-more-about:hover {
-  background-color: var(--primary-orange-hover);
+  background-color: var(--primary-action-hover);
   transform: translateY(-1px);
 }
 

@@ -32,7 +32,7 @@
   font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 32px;
-    color: #1b3a5c;
+    color: var(--title-color);
 }
 
 .section-header .description {
@@ -42,6 +42,27 @@
     color: #6a6960;
     max-width: 340px;
     line-height: 1.5;
+}
+
+.tour-search-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: -12px 0 20px;
+  color: #4a4a4a;
+  font-size: 0.875rem;
+}
+
+.tour-search-status button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #000;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* =====================================================

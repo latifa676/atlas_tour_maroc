@@ -6,11 +6,11 @@ import {
 } from "framer-motion";
 
 import "./TrustSection.css";
-import enjoyImage from "../assets/enjoy.png";
-import enjoy2Image from "../assets/enjoy2.png";
-import enjoy3Image from "../assets/enjoy3.png";
-import enjoy4Image from "../assets/enjoy4.png";
-import enjoy5Image from "../assets/enjoy5.png";
+import enjoyImage from "../assets/enjoy.webp";
+import enjoy2Image from "../assets/enjoy2.webp";
+import enjoy3Image from "../assets/enjoy3.webp";
+import enjoy4Image from "../assets/enjoy4.webp";
+import enjoy5Image from "../assets/enjoy5.webp";
 
 
 const testimonials = [
@@ -354,6 +354,8 @@ function TrustSection() {
               <img
                 src={item.image}
                 alt={item.name}
+                loading="lazy"
+                decoding="async"
               />
 
             </motion.div>

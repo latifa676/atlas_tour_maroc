@@ -4,10 +4,23 @@ import {
   FaWhatsapp,
   FaTripadvisor,
 } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./footer.css";
-import logoImage from "../assets/logo.png";
+import logoImage from "../assets/logo.webp";
 
 function Footer() {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const isTourDetail = pathname.startsWith("/tours/");
+  const bookingSection = isTourDetail ? "booking" : "tours";
+
+  const homeSectionHref = (section) => pathname === "/" ? `#${section}` : `/#${section}`;
+  const handleHomeSectionClick = (event, section) => {
+    if (pathname === "/") return;
+    event.preventDefault();
+    navigate("/", { state: { scrollToSection: section } });
+  };
+
   return (
     <footer className="footer-wrapper">
       <div className="footer-card">
@@ -22,6 +35,8 @@ function Footer() {
               src={logoImage}
               alt="Morocco Excursions"
               className="logo-image"
+              loading="lazy"
+              decoding="async"
               />
               {/* <span className="logo-icon">✦</span>
               <span className="brand-name">Agadir Adventures</span> */}
@@ -34,33 +49,21 @@ function Footer() {
             </p>
 
             <div className="social-links">
-              <a
-                href="#facebook"
-                aria-label="Facebook"
-              >
+              <span aria-hidden="true">
                 <FaFacebook size={20} />
-              </a>
+              </span>
 
-              <a
-                href="#instagram"
-                aria-label="Instagram"
-              >
+              <span aria-hidden="true">
                 <FaInstagram size={20} />
-              </a>
+              </span>
 
-              <a
-                href="#whatsapp"
-                aria-label="WhatsApp"
-              >
+              <span aria-hidden="true">
                 <FaWhatsapp size={20} />
-              </a>
+              </span>
 
-              <a
-                href="#tripadvisor"
-                aria-label="TripAdvisor"
-              >
+              <span aria-hidden="true">
                 <FaTripadvisor size={20} />
-              </a>
+              </span>
             </div>
           </div>
 
@@ -73,19 +76,19 @@ function Footer() {
 
               <ul>
                 <li>
-                  <a href="#tours">Our Tours</a>
+                  <a href={homeSectionHref("tours")} onClick={(event) => handleHomeSectionClick(event, "tours")}>Our Tours</a>
                 </li>
 
                 <li>
-                  <a href="#tours">Paradise Valley</a>
+                  <Link to="/tours/paradise-valley">Paradise Valley</Link>
                 </li>
 
                 <li>
-                  <a href="#tours">Desert Adventure</a>
+                  <Link to="/tours/agadir-desert-adventure">Desert Adventure</Link>
                 </li>
 
                 <li>
-                  <a href="#tours">Boat Trip</a>
+                  <Link to="/tours/agadir-boat-trip">Boat Trip</Link>
                 </li>
               </ul>
             </div>
@@ -96,15 +99,20 @@ function Footer() {
 
               <ul>
                 <li>
-                  <a href="#about">About Us</a>
+                  <a href={homeSectionHref("about")} onClick={(event) => handleHomeSectionClick(event, "about")}>About Us</a>
                 </li>
 
                 <li>
-                  <a href="#faq">FAQ</a>
+                  <a href={homeSectionHref("tours")} onClick={(event) => handleHomeSectionClick(event, "tours")}>Tour Information</a>
                 </li>
 
                 <li>
-                  <a href="#booking">How to Book</a>
+                  <a
+                    href={`#${bookingSection}`}
+                    onClick={isTourDetail ? undefined : (event) => handleHomeSectionClick(event, bookingSection)}
+                  >
+                    How to Book
+                  </a>
                 </li>
 
                 <li>
@@ -114,7 +122,7 @@ function Footer() {
             </div>
 
             {/* Contact */}
-            <div className="link-column">
+            <div className="link-column" id="contact">
               <h4>Contact</h4>
 
               <ul>
@@ -135,7 +143,12 @@ function Footer() {
                 </li>
 
                 <li>
-                  <a href="#contact">Book Your Adventure</a>
+                  <a
+                    href={`#${bookingSection}`}
+                    onClick={isTourDetail ? undefined : (event) => handleHomeSectionClick(event, bookingSection)}
+                  >
+                    Book Your Adventure
+                  </a>
                 </li>
               </ul>
             </div>
@@ -153,9 +166,9 @@ function Footer() {
           </p>
 
           <div className="legal-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms & Conditions</a>
-            <a href="#cookies">Cookie Policy</a>
+            <span>Privacy Policy</span>
+            <span>Terms & Conditions</span>
+            <span>Cookie Policy</span>
           </div>
         </div>
       </div>
