@@ -24,14 +24,14 @@ function Navbar() {
 
   useEffect(() => {
     const sectionId = location.state?.scrollToSection;
-    if (pathname !== "/" || !sectionId) return undefined;
+    if (!sectionId) return undefined;
 
     const frameId = window.requestAnimationFrame(() => {
       document.getElementById(sectionId)?.scrollIntoView({ block: "start" });
     });
 
     return () => window.cancelAnimationFrame(frameId);
-  }, [location.state, pathname]);
+  }, [location.key, location.state]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,21 +43,25 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
+  const closeMobileMenu = () => {
+    setMenuOpen(false);
+  };
 
   const handleNavigationClick = (event, href) => {
-    setMenuOpen(false);
-    if (!isTourDetail) return;
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
 
     event.preventDefault();
+    closeMobileMenu();
     navigate(
-      { pathname: "/", hash: href },
+      { pathname: isTourDetail ? "/" : pathname, hash: href },
       { state: { scrollToSection: href.slice(1) } }
     );
   };
@@ -249,7 +253,7 @@ function Navbar() {
                 <a
                   href={isTourDetail ? "#booking" : "#tours"}
                   className="mobile-cta"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   Book Now
                 </a>

@@ -43,6 +43,9 @@ function Hero({ onSearch }) {
         src={Telephirique}
         alt=""
         aria-hidden="true"
+        width="1440"
+        height="800"
+        loading="eager"
         fetchPriority="high"
         decoding="async"
       />
