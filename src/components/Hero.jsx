@@ -58,11 +58,11 @@ function Hero({ onSearch }) {
         animate="visible"
       >
 
-        <motion.h1 variants={itemVariants}>
+        <h1>
           {headlineLines.map((line) => (
             <span className="hero-title-line" key={line}>{line}</span>
           ))}
-        </motion.h1>
+        </h1>
 
         <motion.p className="hero-description" variants={itemVariants}>
           Discover the Sahara, Atlas Mountains, Paradise Valley and Morocco&apos;s

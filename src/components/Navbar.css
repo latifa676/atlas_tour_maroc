@@ -84,11 +84,15 @@
   background: #fff;
   color: #000;
 }
+.navbar--tour-detail .mobile-cta {
+  background: #fff;
+  color: #000;
+}
 .navbar--tour-detail .logo-image {
   width: clamp(140px, 12vw, 180px);
 }
 .navbar--scrolled:not(.navbar--tour-detail) .nav-links a {
-  color: #fff;
+  color: #ffffff;
 }
 .navbar--scrolled:not(.navbar--tour-detail) .menu-toggle span {
   background-color: #fff;
@@ -177,7 +181,7 @@
 
   display: inline-block;
 
-  color: #fff;
+  color: #ffffff;
   
     /* rgba(255, 255, 255, 0.9); */
   
@@ -271,7 +275,7 @@
   background: var(--primary-action-background);
     /* var(--orange); */
 
-  color: #fff;
+  color: #3b3535;
 
   font-weight: 600;
 
@@ -295,8 +299,8 @@
 }
 
 .navbar .primary-button {
-  background: var(--primary-action-background);
-  color: #fff;
+  background: #fff;
+  color: #000000;
 }
 
 .primary-button:hover {
@@ -419,7 +423,7 @@
 
   display: inline-block;
 
-  color: #fff;
+  color: #ffffff;
 
   text-decoration: none;
 
@@ -443,24 +447,25 @@
     translateX(5px);
 }
 
+.mobile-menu .mobile-cta,
+.mobile-menu .mobile-cta:hover {
+  color: #000;
+}
+
 
 /* MOBILE CTA */
 
 .mobile-cta {
 
-   display: inline-flex;
-
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  padding:
-    0.65rem 1.5rem;
-
+  padding: 0.65rem 1.5rem;
   border-radius: 999px;
 
-  background: var(--primary-action-background);
+  background: #fff ;
 
-  color: #fff;
+  color: #000000;
 
   font-weight: 600;
 

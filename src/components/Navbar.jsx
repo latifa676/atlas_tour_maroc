@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
@@ -21,6 +21,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const scrollToBookingAfterMenuClose = useRef(false);
 
   useEffect(() => {
     const sectionId = location.state?.scrollToSection;
@@ -176,7 +177,17 @@ function Navbar() {
 
 
       {/* MOBILE MENU */}
-      <AnimatePresence>
+      <AnimatePresence
+        onExitComplete={() => {
+          if (!scrollToBookingAfterMenuClose.current) return;
+
+          scrollToBookingAfterMenuClose.current = false;
+          document.getElementById("booking")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }}
+      >
 
         {menuOpen && (
 
@@ -253,7 +264,26 @@ function Navbar() {
                 <a
                   href={isTourDetail ? "#booking" : "#tours"}
                   className="mobile-cta"
-                  onClick={closeMobileMenu}
+                  onClick={(event) => {
+                    if (isTourDetail) {
+                      if (
+                        event.button !== 0 ||
+                        event.metaKey ||
+                        event.ctrlKey ||
+                        event.shiftKey ||
+                        event.altKey
+                      ) {
+                        return;
+                      }
+
+                      event.preventDefault();
+                      scrollToBookingAfterMenuClose.current = true;
+                      closeMobileMenu();
+                      return;
+                    }
+
+                    handleNavigationClick(event, "#tours");
+                  }}
                 >
                   Book Now
                 </a>
