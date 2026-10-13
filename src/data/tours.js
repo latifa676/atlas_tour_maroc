@@ -13,6 +13,8 @@ export const tours = [
     price: 350,
     currency: "MAD",
     image: paradiseValley2,
+    imageWidth: 1080,
+    imageHeight: 1329,
     images: [paradiseValley2, paradiseValley2, paradiseValley2, paradiseValley2],
     description:
       "Discover natural pools, beautiful landscapes, and the hidden beauty of Paradise Valley.",
@@ -68,6 +70,8 @@ export const tours = [
     price: 300,
     currency: "MAD",
     image: desertAgadir,
+    imageWidth: 736,
+    imageHeight: 981,
     images: [desertAgadir, desertAgadir, desertAgadir, desertAgadir],
     description:
       "Experience the Moroccan desert with an unforgettable adventure.",
@@ -123,6 +127,8 @@ export const tours = [
     price: 250,
     currency: "MAD",
     image: boatTrip,
+    imageWidth: 720,
+    imageHeight: 720,
     images: [boatTrip, boatTrip, boatTrip, boatTrip],
     description:
       "Enjoy the beautiful Atlantic coast and discover Agadir from the sea.",
@@ -178,6 +184,8 @@ export const tours = [
     price: 350,
     currency: "MAD",
     image: taghazout2,
+    imageWidth: 640,
+    imageHeight: 480,
     images: [taghazout2, taghazout2, taghazout2, taghazout2],
     description:
       "Explore Taghazout's surf beaches, coastal scenery, and relaxed village atmosphere.",

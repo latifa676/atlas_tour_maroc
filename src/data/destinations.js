@@ -12,6 +12,8 @@ export const destinations = [
     description: "Golden beaches, Paradise Valley and unforgettable coastal adventures.",
     image: agadirImage,
     imageAlt: "Agadir's coastline and Atlantic Ocean",
+    imageWidth: 1472,
+    imageHeight: 1962,
     featured: true,
   },
   {
@@ -20,6 +22,8 @@ export const destinations = [
     description: "Explore the Medina, vibrant souks and authentic Moroccan culture.",
     image: marrakechImage,
     imageAlt: "Historic architecture in Marrakech, Morocco",
+    imageWidth: 864,
+    imageHeight: 680,
   },
   {
     name: "Sahara Desert",
@@ -27,6 +31,8 @@ export const destinations = [
     description: "Discover golden dunes and unforgettable desert landscapes.",
     image: saharaImage,
     imageAlt: "Golden dunes in the Moroccan Sahara",
+    imageWidth: 1664,
+    imageHeight: 680,
   },
   {
     name: "Atlas Mountains",
@@ -34,6 +40,8 @@ export const destinations = [
     description: "Find mountain villages, valleys and breathtaking scenery.",
     image: atlasImage,
     imageAlt: "A natural pool surrounded by the Atlas Mountains",
+    imageWidth: 1080,
+    imageHeight: 1329,
   },
   {
     name: "Essaouira",
@@ -41,6 +49,8 @@ export const destinations = [
     description: "Wander the charming medina and enjoy the relaxed Atlantic atmosphere.",
     image: essaouiraImage,
     imageAlt: "Traditional market in Essaouira's historic medina",
+    imageWidth: 960,
+    imageHeight: 620,
   },
   {
     name: "Taghazout",
@@ -48,5 +58,7 @@ export const destinations = [
     description: "Experience a laid-back coastal village, surf breaks and ocean sunsets.",
     image: taghazoutImage,
     imageAlt: "Taghazout village on Morocco's Atlantic coast",
+    imageWidth: 772,
+    imageHeight: 483,
   },
 ];

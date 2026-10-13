@@ -92,6 +92,8 @@ export default function AboutUs() {
               <img
                 src={aboutUsImage}
                 alt="Moroccan mountain landscape near Agadir"
+                width="640"
+                height="962"
                 loading="lazy"
                 decoding="async"
               />
@@ -107,6 +109,8 @@ export default function AboutUs() {
               <img
                 src={paradiseValleyImage}
                 alt="Natural pools in Paradise Valley, Morocco"
+                width="720"
+                height="480"
                 loading="lazy"
                 decoding="async"
               />

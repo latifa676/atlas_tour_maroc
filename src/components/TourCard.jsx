@@ -22,6 +22,8 @@ function TourCard({ tour, searchCriteria }) {
       <img
         src={tour.image}
         alt={title}
+        width={tour.imageWidth}
+        height={tour.imageHeight}
         className="tour-image"
         loading="lazy"
         decoding="async"
@@ -32,11 +34,12 @@ function TourCard({ tour, searchCriteria }) {
       <button
         className="book-btn"
         onClick={openTour}
+        aria-label={`Book ${title}`}
       >
         Book now
       </button>
 
-      <button className="favorite-btn">
+      <button className="favorite-btn" aria-label={`Add ${title} to favorites`}>
         <Heart size={20} />
       </button>
 

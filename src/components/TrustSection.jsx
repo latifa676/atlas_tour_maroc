@@ -17,6 +17,8 @@ const testimonials = [
   {
     id: 1,
     image: enjoyImage,
+    width: 1472,
+    height: 1962,
     name: "Mia Putri",
     text: "An amazing experience! Sunrise and trails were absolutely stunning.",
     rotate: "5deg",
@@ -25,6 +27,8 @@ const testimonials = [
   {
     id: 2,
     image: enjoy2Image,
+    width: 1472,
+    height: 1962,
     name: "Ahmad Fouzi",
     text: "Sunrise was incredible and guides were so helpful.",
     rotate: "-7deg",
@@ -33,6 +37,8 @@ const testimonials = [
   {
     id: 3,
     image: enjoy3Image,
+    width: 1472,
+    height: 2208,
     name: "Alya Rahman",
     text: "Breathtaking views and unforgettable memories.",
     rotate: "0deg",
@@ -41,6 +47,8 @@ const testimonials = [
   {
     id: 4,
     image: enjoy4Image,
+    width: 720,
+    height: 900,
     name: "Rizky Aditya",
     text: "Professional guides and stunning scenery.",
     rotate: "7deg",
@@ -49,6 +57,8 @@ const testimonials = [
   {
     id: 5,
     image: enjoy5Image,
+    width: 1200,
+    height: 1500,
     name: "Siti Nurhaliza",
     text: "Every moment was magical. Highly recommended.",
     rotate: "-6deg",
@@ -354,6 +364,8 @@ function TrustSection() {
               <img
                 src={item.image}
                 alt={item.name}
+                width={item.width}
+                height={item.height}
                 loading="lazy"
                 decoding="async"
               />

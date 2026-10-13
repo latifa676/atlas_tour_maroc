@@ -34,6 +34,8 @@ function Footer() {
               <img
               src={logoImage}
               alt="Morocco Excursions"
+              width="1536"
+              height="1024"
               className="logo-image"
               loading="lazy"
               decoding="async"

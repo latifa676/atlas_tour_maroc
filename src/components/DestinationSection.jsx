@@ -3,7 +3,16 @@ import { destinations } from "../data/destinations";
 import "./DestinationSection.css";
 
 function DestinationCard({ destination }) {
-  const { name, category, description, image, imageAlt, featured } = destination;
+  const {
+    name,
+    category,
+    description,
+    image,
+    imageAlt,
+    imageWidth,
+    imageHeight,
+    featured
+  } = destination;
 
   return (
     <a
@@ -15,6 +24,8 @@ function DestinationCard({ destination }) {
         className="destination-card__image"
         src={image}
         alt={imageAlt}
+        width={imageWidth}
+        height={imageHeight}
         loading="lazy"
         decoding="async"
       />

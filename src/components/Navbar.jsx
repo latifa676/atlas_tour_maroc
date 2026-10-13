@@ -94,6 +94,8 @@ function Navbar() {
           <img
             src={logoImage}
             alt="Morocco Excursions"
+            width="201"
+            height="43"
             className="logo-image"
           />
         </motion.a>

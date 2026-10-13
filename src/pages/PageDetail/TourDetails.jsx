@@ -350,7 +350,9 @@ export default function TourDetailPage() {
                 key={`${galleryImage}-${index}`}
                 className={index === 0 ? "tour-hero__gallery-main" : ""}
                 src={galleryImage}
-                alt={`${title} view ${index + 1}`}
+                alt={`${title} tour view ${index + 1}`}
+                width={tour.imageWidth}
+                height={tour.imageHeight}
                 loading={index === 0 ? "eager" : "lazy"}
                 fetchPriority={index === 0 ? "high" : undefined}
                 decoding="async"
@@ -650,6 +652,8 @@ export default function TourDetailPage() {
               <img
                 src={relatedTour.image || relatedTour.images?.[0]}
                 alt={getTitleContent(relatedTour)}
+                width={relatedTour.imageWidth}
+                height={relatedTour.imageHeight}
                 loading="lazy"
                 decoding="async"
               />

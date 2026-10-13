@@ -176,6 +176,8 @@ export default function Testimonials() {
                   <img 
                     src={review.avatar} 
                     alt={review.name} 
+                    width="200"
+                    height="200"
                     loading="lazy"
                     decoding="async"
                     className="author-avatar" 
