@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { tours } from "../data/tours";
 import TourCard from "./TourCard";
 import "./TourGrid.css";
@@ -23,7 +23,7 @@ function TourGrid({ searchCriteria, onClearSearch }) {
 
         <div className="section-header">
 
-          <motion.div
+          <m.div
             className="heading-wrapper"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,9 +35,9 @@ function TourGrid({ searchCriteria, onClearSearch }) {
             </span>
 
             <h2>{destinationQuery ? `Tours for “${searchCriteria.destination}”` : "Discover your next adventure"}</h2>
-          </motion.div>
+          </m.div>
 
-          <motion.p
+          <m.p
             className="description"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ function TourGrid({ searchCriteria, onClearSearch }) {
           >
             Explore unforgettable experiences and discover
             the beauty of Morocco.
-          </motion.p>
+          </m.p>
 
         </div>
 
@@ -61,7 +61,7 @@ function TourGrid({ searchCriteria, onClearSearch }) {
           </div>
         )}
 
-        <motion.div
+        <m.div
           className="tour-grid"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ function TourGrid({ searchCriteria, onClearSearch }) {
               searchCriteria={searchCriteria}
             />
           ))}
-        </motion.div>
+        </m.div>
 
       </div>
     </section>

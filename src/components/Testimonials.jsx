@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from "framer-motion";
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import './Testimonial.css';
 
@@ -87,14 +87,14 @@ export default function Testimonials() {
       <div className="reviews-wrapper">
         
         {/* Left Headline & Navigation Column */}
-        <motion.div 
+        <m.div
           className="reviews-header-col"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div 
+          <m.div
             className="large-quote-icon" 
             aria-hidden="true"
             initial={{ scale: 1.2, opacity: 0 }}
@@ -102,7 +102,7 @@ export default function Testimonials() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             “
-          </motion.div>
+          </m.div>
           <h2 className="reviews-title">
             What our<br />
             customers are<br />
@@ -119,7 +119,7 @@ export default function Testimonials() {
               <ArrowLeft size={18} />
             </button>
             <div className="nav-track">
-              <motion.div 
+              <m.div
                 className="nav-thumb" 
                 animate={{ left: `${(scrollIndex / (reviewsData.length - 2)) * 60}%` }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -134,11 +134,11 @@ export default function Testimonials() {
               <ArrowRight size={18} />
             </button>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Right Scrolling Cards Area */}
         <div className="cards-slider-viewport">
-          <motion.div 
+          <m.div
             className="cards-slider-track"
             // Replaced inline style with Framer Motion animate for smooth scrolling
             animate={{ x: -(scrollIndex * 330) }}
@@ -151,7 +151,7 @@ export default function Testimonials() {
             }}
           >
             {reviewsData.map((review) => (
-              <motion.div 
+              <m.div
                 key={review.id} 
                 className="review-card-wrapper"
                 variants={{
@@ -191,9 +191,9 @@ export default function Testimonials() {
                     <span className="author-time">{review.timeAgo}</span>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
 
       </div>

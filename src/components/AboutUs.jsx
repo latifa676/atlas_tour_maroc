@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from "framer-motion";
 import './AboutUs.css';
 import aboutUsImage from '../assets/AboutUs.webp';
 import paradiseValleyImage from '../assets/paradise-valley.webp';
@@ -31,7 +31,7 @@ export default function AboutUs() {
         
         {/* SVG Path */}
         <svg className="flight-path-svg" viewBox="0 0 1000 400" fill="none">
-          <motion.path 
+          <m.path
             d="M -50,150 C 150,450 500,350 1050,-50" 
             stroke="#cbd5e1" 
             strokeWidth="2" 
@@ -46,17 +46,17 @@ export default function AboutUs() {
         {/* Top Content Grid */}
         <div className="about-grid">
           {/* Left Column */}
-          <motion.div 
+          <m.div
             className="text-content"
             variants={textContainerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.h2 className="about-title" variants={textItemVariants}>
+            <m.h2 className="about-title" variants={textItemVariants}>
               About Us
-            </motion.h2>
-            <motion.p className="about-description" variants={textItemVariants}>
+            </m.h2>
+            <m.p className="about-description" variants={textItemVariants}>
               At Flygo, we believe travel is more than reaching a destination—it’s about
 
               the moments you collect along the way. Whether you’re seeking adventure,
@@ -64,25 +64,25 @@ export default function AboutUs() {
               relaxation, or cultural immersion, we design journeys around what truly
 
               matters to you.            
-            </motion.p>
-            <motion.p className="about-description" variants={textItemVariants}>
+            </m.p>
+            <m.p className="about-description" variants={textItemVariants}>
               With expert planning, trusted global partners, and a passion for exploration,
 
               we make travel effortless, inspiring, and unforgettable.           
-            </motion.p>
-            <motion.button 
+            </m.p>
+            <m.button
               className="btn-more-about" 
               variants={textItemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               More about
-            </motion.button>
-          </motion.div>
+            </m.button>
+          </m.div>
 
           {/* Right Column Images */}
           <div className="image-composition">
-            <motion.div 
+            <m.div
               className="main-image-card"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -97,9 +97,9 @@ export default function AboutUs() {
                 loading="lazy"
                 decoding="async"
               />
-            </motion.div>
+            </m.div>
 
-            <motion.div 
+            <m.div
               className="overlay-image-card"
               initial={{ opacity: 0, x: 40, y: 40 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
@@ -114,12 +114,12 @@ export default function AboutUs() {
                 loading="lazy"
                 decoding="async"
               />
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
         {/* Stats Grid */}
-        <motion.div 
+        <m.div
           className="stats-grid"
           initial="hidden"
           whileInView="visible"
@@ -129,7 +129,7 @@ export default function AboutUs() {
           }}
         >
           {statsData.map((stat, idx) => (
-            <motion.div 
+            <m.div
               key={idx} 
               className="stat-item"
               variants={{
@@ -139,9 +139,9 @@ export default function AboutUs() {
             >
               <span className="stat-value">{stat.value}</span>
               <span className="stat-label">{stat.label}</span>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  motion,
+  m,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -299,7 +299,7 @@ function TrustSection() {
           TITLE
       ================================================= */}
 
-      <motion.div
+      <m.div
         className="section-title"
 
         initial={{
@@ -332,7 +332,7 @@ function TrustSection() {
           professional photography that preserves your memories forever.
         </p>
 
-      </motion.div>
+      </m.div>
 
 
       {/* ================================================
@@ -347,7 +347,7 @@ function TrustSection() {
 
           return (
 
-            <motion.div
+            <m.div
               key={item.id}
 
               className="testimonial-card"
@@ -370,7 +370,7 @@ function TrustSection() {
                 decoding="async"
               />
 
-            </motion.div>
+            </m.div>
 
           );
 

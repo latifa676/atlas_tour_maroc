@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logoImage from "../assets/Agencyidentity.webp";
@@ -77,7 +77,7 @@ function Navbar() {
       <div className="container navbar-inner">
 
         {/* LOGO */}
-        <motion.a
+        <m.a
           href="/"
           className="logo"
           aria-label="Morocco Excursions"
@@ -98,7 +98,7 @@ function Navbar() {
             height="43"
             className="logo-image"
           />
-        </motion.a>
+        </m.a>
 
 
         {/* DESKTOP NAV */}
@@ -108,7 +108,7 @@ function Navbar() {
 
             {navLinks.map(({ label, href }, i) => (
 
-              <motion.li
+              <m.li
                 key={href}
                 initial={{ opacity: 0, x: 35 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -130,7 +130,7 @@ function Navbar() {
 
                 </a>
 
-              </motion.li>
+              </m.li>
 
             ))}
 
@@ -142,7 +142,7 @@ function Navbar() {
         {/* ACTIONS */}
         <div className="navbar-actions">
 
-          <motion.a
+          <m.a
             href={isTourDetail ? "#booking" : "#tours"}
             className="primary-button"
             initial={{ opacity: 0, x: 60 }}
@@ -157,7 +157,7 @@ function Navbar() {
             }}
           >
             Book Now
-          </motion.a>
+          </m.a>
 
 
           {/* MOBILE BUTTON */}
@@ -193,7 +193,7 @@ function Navbar() {
 
         {menuOpen && (
 
-          <motion.div
+          <m.div
             className="mobile-menu"
             id="mobile-navigation"
             initial={{
@@ -218,7 +218,7 @@ function Navbar() {
 
               {navLinks.map(({ label, href }, i) => (
 
-                <motion.li
+                <m.li
                   key={href}
                   initial={{
                     opacity: 0,
@@ -242,12 +242,12 @@ function Navbar() {
                     {label}
                   </a>
 
-                </motion.li>
+                </m.li>
 
               ))}
 
 
-              <motion.li
+              <m.li
                 initial={{
                   opacity: 0,
                   x: -35,
@@ -290,11 +290,11 @@ function Navbar() {
                   Book Now
                 </a>
 
-              </motion.li>
+              </m.li>
 
             </ul>
 
-          </motion.div>
+          </m.div>
 
         )}
 

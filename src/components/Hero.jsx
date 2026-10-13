@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { CalendarDays, MapPin, Search, Users } from "lucide-react";
 import Telephirique from "../assets/Hero.webp";
 import "./Hero.css";
@@ -51,7 +51,7 @@ function Hero({ onSearch }) {
       />
       <div className="hero-overlay" aria-hidden="true" />
 
-      <motion.div
+      <m.div
         className="hero-content"
         variants={contentVariants}
         initial="hidden"
@@ -64,12 +64,12 @@ function Hero({ onSearch }) {
           ))}
         </h1>
 
-        <motion.p className="hero-description" variants={itemVariants}>
+        <m.p className="hero-description" variants={itemVariants}>
           Discover the Sahara, Atlas Mountains, Paradise Valley and Morocco&apos;s
           hidden gems with local expert guides.
-        </motion.p>
+        </m.p>
 
-        <motion.form
+        <m.form
           className="hero-search"
           variants={itemVariants}
           onSubmit={handleSearch}
@@ -109,7 +109,7 @@ function Hero({ onSearch }) {
             <span>Find my trip</span>
             <Search size={16} aria-hidden="true" />
           </button>
-        </motion.form>
+        </m.form>
 
         {/* <motion.div className="hero-actions" variants={itemVariants}>
           <a href="#tours" className="hero-button hero-button--primary">
@@ -128,7 +128,7 @@ function Hero({ onSearch }) {
           </span>
           <span><strong>10,000+</strong> Happy Travelers</span>
         </motion.div> */}
-      </motion.div>
+      </m.div>
 
       {/* <a className="scroll-indicator" href="#destinations" aria-label="Explore Morocco">
         <span>Explore Morocco</span>
