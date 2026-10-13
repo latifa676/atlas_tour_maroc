@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 import { CalendarDays, MapPin, Search, Users } from "lucide-react";
-import Telephirique from "../assets/Hero.webp";
+import hero from "../assets/Hero_landscape.webp";
 import "./Hero.css";
 
 const contentVariants = {
@@ -40,7 +40,7 @@ function Hero({ onSearch }) {
     <section className="hero" id="home">
       <img
         className="hero-bg"
-        src={Telephirique}
+        src={hero}
         alt=""
         aria-hidden="true"
         width="1440"

@@ -6,7 +6,7 @@ import {
 } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./footer.css";
-import logoImage from "../assets/logo.webp";
+import logoImage from "../assets/Agencyidentity.webp";
 
 function Footer() {
   const { pathname } = useLocation();
