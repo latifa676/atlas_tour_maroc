@@ -2,9 +2,9 @@
   --bg-page: #fff;
   --text-main: #1e293b;
   --text-muted: #64748b;
-  --text-light: #94a3b8;
-  --primary: #f5820d;
-  --primary-hover: #d96b00;
+  --text-light: #64748b;
+  --primary: #A84D00;
+  --primary-hover: #A3552F;
   --border-color: #e2e8f0;
   --card-bg: #ffffff;
 }
@@ -185,7 +185,7 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 4px;
-  color: #ca8a04;
+  color: var(--primary-hover);
   font-size: 0.72rem;
   white-space: nowrap;
 }
@@ -252,7 +252,7 @@
 }
 
 .tour-original-price {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 0.78rem;
   text-decoration: line-through;
 }

@@ -2,7 +2,7 @@
   --bg-reviews: #f9f8f9;
   --text-dark: #1b3a5c;
   --text-body: #4a4a4a;
-  --text-muted: #999999;
+  --text-muted: #666666;
   --card-bg: #ffffff;
   --star-color: #00b67a;
   --border-subtle: #eaeaea;
@@ -150,7 +150,7 @@
 }
 
 .star-icon {
-  color: #f5820d;
+  color: #A84D00;
   fill: currentColor;
 }
 

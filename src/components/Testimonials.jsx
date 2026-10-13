@@ -163,9 +163,13 @@ export default function Testimonials() {
                 {/* Speech Bubble Card */}
                 <div className="speech-bubble">
                   <p className="review-body">{review.text}</p>
-                  <div className="rating-stars">
+                  <div
+                    className="rating-stars"
+                    role="img"
+                    aria-label={`Rated ${review.rating} out of 5 stars`}
+                  >
                     {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="star-icon" size={16} />
+                      <Star key={i} className="star-icon" size={16} aria-hidden="true" />
                     ))}
                   </div>
                   <div className="bubble-tail" />
