@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 import { CalendarDays, MapPin, Search, Users } from "lucide-react";
-import hero from "../assets/toubkal.webp";
+import hero from "../assets/toubkal2.webp";
 import "./Hero.css";
 
 const contentVariants = {
