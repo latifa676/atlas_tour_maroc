@@ -91,12 +91,12 @@
   max-width: 900px;
   margin: 0 auto 1.25rem;
   color: inherit;
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(2.75rem, 5.2vw, 4.5rem);
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: 0.03em;
-  line-height:1.2;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  /* font-style: normal; */
+  letter-spacing: 0.06em;
+  line-height: 1.2;
   text-shadow: 0 3px 22px rgba(0, 0, 0, 0.3);
 }
 

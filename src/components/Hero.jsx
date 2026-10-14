@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 import { CalendarDays, MapPin, Search, Users } from "lucide-react";
-import hero from "../assets/Hero_landscape.webp";
+import hero from "../assets/toubkal.webp";
 import "./Hero.css";
 
 const contentVariants = {
@@ -17,7 +17,7 @@ const itemVariants = {
   },
 };
 
-const headlineLines = ["Your Moroccan Adventure", "Starts Here"];
+const headlineLines = ["Your Moroccan Adventure Starts", "Here"];
 
 function Hero({ onSearch }) {
   const handleSearch = (event) => {
